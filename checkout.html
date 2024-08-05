@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkout.css"> <!-- Inclua seu CSS aqui -->
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+    <main>
+        <section id="orderSummary">
+            <h2>Resumo do Pedido</h2>
+            <ul id="orderItems">
+                <!-- Itens do pedido serão inseridos aqui -->
+                <!-- Exemplo de item:
+                <li>
+                    <img src="url-da-imagem-do-produto" alt="Imagem do produto">
+                    <div class="item-info">
+                        Nome do Produto - Preço x Quantidade
+                    </div>
+                    <button class="remove-button" data-id="produto-id">Remover</button>
+                </li>
+                -->
+            </ul>
+            <div id="orderTotal">Total: $0.00</div>
+        </section>
+        <section id="paymentOptions">
+            <h2>Forma de Pagamento</h2>
+            <form id="paymentForm">
+                <label for="cardNumber">Número do Cartão:</label>
+                <input type="text" id="cardNumber" name="cardNumber" required>
+
+                <label for="expiryDate">Data de Validade:</label>
+                <input type="text" id="expiryDate" name="expiryDate" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <button type="submit">Pagar</button>
+            </form>
+        </section>
+        <a id="backButton" href="home.html">Voltar para a Home</a>
+    </main>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

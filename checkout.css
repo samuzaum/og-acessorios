@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+/* Estilos básicos para a página de checkout */
+body {
+    background-color: #f0e3f8;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  header {
+    background-color: rgba(178, 113, 194, 0.466);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #orderSummary, #paymentOptions {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  #orderSummary h2, #paymentOptions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #560277;
+  }
+  
+  #orderItems {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #orderItems li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #666;
+  }
+  
+  #orderItems li img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  #orderItems li .item-info {
+    flex: 1;
+  }
+  
+  #orderTotal {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #560277;
+  }
+  
+  #paymentOptions form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #paymentOptions label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  #paymentOptions input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  #paymentOptions button {
+    background-color: #cb7ceb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  #paymentOptions button:hover {
+    background-color: #a065d7;
+  }
+  .remove-button{
+  background-color: #c300ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+  /* Estilos para o botão de voltar à página inicial */
+  #backButton {
+    background-color: #560277;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  #backButton:hover {
+    background-color: #3a0461;
+  }
+  

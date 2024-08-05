@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG - Acessorios</title>
+    <link rel="stylesheet" href="loginstyles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="shapes"></div>
+    <div class="container-background"></div> 
+    <div class="container" id="container">
+        <div class="form-container login-container">
+            <form id="loginForm" method="POST" action="login.php">
+                <h1>Login</h1>
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" id="password" name="senha" placeholder="Senha" required />
+                <button type="submit">Entrar</button>
+                <span>Não tem uma conta? <a href="#" id="signUp">Cadastre-se</a></span>
+            </form>
+        </div>
+        <div class="form-container register-container">
+            <form id="registerForm" method="POST" action="register.php">
+                <h1>Cadastro</h1>
+                <input type="text" name="nome" placeholder="Nome" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="senha" placeholder="Senha" required />
+                <button type="submit">Cadastrar</button>
+                <span>Já tem uma conta? <a href="#" id="signIn">Entre</a></span>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/loginclick.js"></script>
+</body>
+</html>
