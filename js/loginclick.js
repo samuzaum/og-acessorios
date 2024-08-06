@@ -40,7 +40,7 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(response) {
                 if (response === "admin") {
-                    window.location.href = 'admin_dashboard.php'; // Redirecionar para admin_dashboard.php
+                    window.location.href = '/api/admin_dashboard.php'; // Redirecionar para admin_dashboard.php
                 } else if (response === "user") {
                     window.location.href = 'home.html'; // Redirecionar para home.html
                 } else {
