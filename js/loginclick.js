@@ -35,7 +35,7 @@ $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
         e.preventDefault(); // Prevenir o envio padrão do formulário
         $.ajax({
-            url: 'login.php',
+            url: '/api/login.php',
             type: 'POST',
             data: $(this).serialize(),
             success: function(response) {
@@ -57,7 +57,7 @@ $(document).ready(function() {
     $('#registerForm').on('submit', function(e) {
         e.preventDefault(); // Prevenir o envio padrão do formulário
         $.ajax({
-            url: 'register.php',
+            url: '/api/register.php',
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
