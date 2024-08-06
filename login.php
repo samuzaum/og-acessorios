@@ -9,7 +9,7 @@ $senha = $_POST['senha'];
 
 // Configurar a requisição cURL
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "$supabaseUrl/rest/v1/usuarios?email=eq.$email");
+curl_setopt($ch, CURLOPT_URL, "https://zbxacixcsuymskeircge.supabase.co/rest/v1/usuarios?email=eq.$email");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "apikey: $supabaseKey",
