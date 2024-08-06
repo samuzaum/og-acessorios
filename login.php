@@ -1,23 +1,33 @@
 <?php
-// Conectar ao banco de dados
-$conn = new mysqli('localhost', 'root', '', 'stock');
-
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+// Credenciais do Supabase
+$supabaseUrl = 'https://zbxacixcsuymskeircge.supabase.co'; // Substitua pelo seu Supabase URL
+$supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpieGFjaXhjc3V5bXNrZWlyY2dlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI4ODc0NDQsImV4cCI6MjAzODQ2MzQ0NH0._ETAS49Pr4Q_TSykIcNtv-NSdO5ROzHZ00NbkzCtLJk'; // Substitua pela sua chave de API
 
 // Pegar os dados do formulário
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-// Buscar o usuário no banco de dados
-$sql = "SELECT id, senha, is_admin FROM usuarios WHERE email='$email'";
-$result = $conn->query($sql);
+// Configurar a requisição cURL
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "$supabaseUrl/rest/v1/usuarios?email=eq.$email");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "apikey: $supabaseKey",
+    "Authorization: Bearer $supabaseKey",
+    "Content-Type: application/json"
+]);
 
-if ($result->num_rows > 0) {
+// Executar a requisição e pegar a resposta
+$response = curl_exec($ch);
+curl_close($ch);
+
+// Converter a resposta JSON em array PHP
+$result = json_decode($response, true);
+
+if (count($result) > 0) {
+    $row = $result[0]; // Assume que o email é único e pegamos o primeiro resultado
+
     // Verificar a senha
-    $row = $result->fetch_assoc();
     if (password_verify($senha, $row['senha'])) {
         // Iniciar a sessão
         session_start();
@@ -37,7 +47,4 @@ if ($result->num_rows > 0) {
 } else {
     echo "Nenhum usuário encontrado com este email.";
 }
-
-// Fechar a conexão
-$conn->close();
 ?>
