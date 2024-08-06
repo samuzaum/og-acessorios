@@ -12,9 +12,17 @@ try {
     $pdo = new PDO($dsn, $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    echo "Conexão ao banco de dados estabelecida com sucesso!<br>";
+
     // Pegar os dados do formulário
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $email = $_POST['email'] ?? null;
+    $senha = $_POST['senha'] ?? null;
+
+    if (!$email || !$senha) {
+        die("Erro: Dados do formulário não foram recebidos corretamente.<br>");
+    }
+
+    echo "Email recebido: $email<br>";
 
     // Buscar o usuário no banco de dados
     $stmt = $pdo->prepare("SELECT id, senha, is_admin FROM usuarios WHERE email = :email");
@@ -23,6 +31,8 @@ try {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($row) {
+        echo "Usuário encontrado: " . print_r($row, true) . "<br>";
+
         // Verificar a senha
         if (password_verify($senha, $row['senha'])) {
             // Iniciar a sessão
